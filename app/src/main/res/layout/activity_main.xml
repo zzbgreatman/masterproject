@@ -73,6 +73,4 @@
         app:layout_constraintTop_toTopOf="parent"
         android:onClick="startConnection"/>
 
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

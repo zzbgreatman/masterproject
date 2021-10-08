@@ -1,0 +1,6 @@
+[submodule "walletlink-mobile-sdk"]
+	path = walletlink-mobile-sdk
+	url = https://github.com/walletlink/walletlink-mobile-sdk.git
+[submodule "walletlink-mobile"]
+	path = walletlink-mobile
+	url = git@github.com:CoinbaseWallet/walletlink-mobile.git

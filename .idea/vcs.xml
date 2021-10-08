@@ -2,5 +2,11 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/walletlink-mobile-sdk" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/walletlink-mobile-sdk/android/CBCrypto" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/walletlink-mobile-sdk/android/CBDatabase" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/walletlink-mobile-sdk/android/CBHTTP" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/walletlink-mobile-sdk/android/CBStore" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/walletlink-mobile-sdk/android/walletlink-mobile-sdk" vcs="Git" />
   </component>
 </project>
