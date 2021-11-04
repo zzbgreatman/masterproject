@@ -3,12 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Files For Works/CS courses/CS 690/masterproject/app/src/main/res/drawable/custom_button_1.xml" value="0.26614583333333336" />
+        <entry key="..\:/Files For Works/CS courses/CS 690/masterproject/app/src/main/res/drawable/user_profile_1.xml" value="0.26614583333333336" />
+        <entry key="..\:/Files For Works/CS courses/CS 690/masterproject/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Files For Works/CS courses/CS 690/masterproject/app/src/main/res/layout/custom_dialog.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/lzy96/AndroidStudioProjects/DApp/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/lzy96/AndroidStudioProjects/DApp/app/src/main/res/layout/custom_dialog.xml" value="0.4" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
