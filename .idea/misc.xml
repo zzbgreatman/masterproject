@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Files For Works/CS courses/CS 690/masterproject/app/src/main/res/drawable/background02.xml" value="0.2703125" />
         <entry key="..\:/Files For Works/CS courses/CS 690/masterproject/app/src/main/res/drawable/custom_button_1.xml" value="0.26614583333333336" />
+        <entry key="..\:/Files For Works/CS courses/CS 690/masterproject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
         <entry key="..\:/Files For Works/CS courses/CS 690/masterproject/app/src/main/res/drawable/user_profile_1.xml" value="0.26614583333333336" />
-        <entry key="..\:/Files For Works/CS courses/CS 690/masterproject/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Files For Works/CS courses/CS 690/masterproject/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/Files For Works/CS courses/CS 690/masterproject/app/src/main/res/layout/custom_dialog.xml" value="0.25416666666666665" />
+        <entry key="..\:/Files For Works/CS courses/CS 690/masterproject/app/src/main/res/layout/send_trading_view.xml" value="0.4" />
+        <entry key="..\:/Files For Works/CS courses/CS 690/masterproject/app/src/main/res/layout/send_typed_data_view.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/lzy96/AndroidStudioProjects/DApp/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/lzy96/AndroidStudioProjects/DApp/app/src/main/res/layout/custom_dialog.xml" value="0.4" />
       </map>

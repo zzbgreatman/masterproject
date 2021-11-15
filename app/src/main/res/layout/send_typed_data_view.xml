@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@color/purple_700"
+        android:padding="10dp"
+        app:layout_constraintCircleRadius="20dp">
+
+        <TextView
+            android:id="@+id/sendTradingTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColor"
+            android:layout_marginTop="5dp"
+            android:textSize="35dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="SIGN TYPED DATA" />
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/fromAddressTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                android:textSize="30dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="From Address:" />
+
+            <EditText
+                android:id="@+id/fromAddressInput"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:background="@color/white"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:ems="5" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/toAddressTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                android:textSize="30dp"
+                android:layout_marginRight="20dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="To Address:" />
+
+            <EditText
+                android:id="@+id/toAddressInput"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:background="@color/white"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_marginLeft="15dp"
+                android:ems="5" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/weiValueTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                android:textSize="30dp"
+                android:layout_marginRight="70dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Wei:" />
+
+            <EditText
+                android:id="@+id/weiValueInput"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:background="@color/white"
+                android:layout_marginLeft="70dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:ems="5" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/dataTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                android:textSize="30dp"
+                android:layout_marginRight="125dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Data:" />
+
+            <EditText
+                android:id="@+id/dataInput"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:background="@color/white"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:ems="5" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/nonceTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                android:textSize="30dp"
+                android:layout_marginRight="100dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Nonce:" />
+
+            <EditText
+                android:id="@+id/nonceInput"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:background="@color/white"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:ems="5" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/gasPriceTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                android:textSize="30dp"
+                android:layout_marginRight="60dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Gas Price:" />
+
+            <EditText
+                android:id="@+id/gasPriceInput"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:background="@color/white"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:ems="5" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/gasLimitTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                android:textSize="30dp"
+                android:layout_marginRight="60dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Gas Limit:" />
+
+            <EditText
+                android:id="@+id/gasLimitInput"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:background="@color/white"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:ems="5" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/chainIdTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                android:textSize="30dp"
+                android:layout_marginRight="76dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Chain Id:" />
+
+            <EditText
+                android:id="@+id/chainIdInput"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:background="@color/white"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:ems="5" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/shouldSubmitTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                android:textSize="30dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Should Submit:" />
+
+            <EditText
+                android:id="@+id/shouldSubmitInput"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:background="@color/white"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:ems="5" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:id="@+id/twoButtonLayout">
+
+            <TextView
+                android:id="@+id/send_typedData_close"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:gravity="center"
+                android:textColor="@color/textColor"
+                android:background="@drawable/custom_button_1"
+                android:layout_margin="5dp"
+                android:paddingVertical="5dp"
+                android:textSize="25dp"
+                android:text="Close"
+                android:layout_alignParentLeft="true" />
+
+            <TextView
+                android:id="@+id/send_typedData_button"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/textColor"
+                android:background="@drawable/custom_button_1"
+                android:layout_margin="5dp"
+                android:paddingVertical="5dp"
+                android:textSize="25dp"
+                android:gravity="center"
+                android:text="Send"
+                android:layout_alignParentLeft="true" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

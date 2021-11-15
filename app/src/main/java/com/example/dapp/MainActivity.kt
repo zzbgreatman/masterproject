@@ -1,11 +1,16 @@
 package com.example.dapp
 
 import android.annotation.SuppressLint
+import android.app.Dialog
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.dapp.databinding.ActivityMainBinding
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
@@ -15,6 +20,9 @@ import com.google.zxing.common.BitMatrix
 @SuppressLint("StaticFieldLeak")
 private var builderForCustom: CustomDialog.Builder? = null
 private var mDialog: CustomDialog? = null
+
+private var signTypedDataDialogBuiler: SignTypedDataDialog.Builder? = null
+private var signTypedDataDialog: SignTypedDataDialog? = null
 
 fun barcodeFormatCode(content: String): Bitmap {
     val barcode = BarcodeFormat.QR_CODE
@@ -51,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
+
         setContentView(view)
     }
 
@@ -66,6 +75,32 @@ class MainActivity : AppCompatActivity() {
         showSingleButtonDialog(testlink, "Cancel") {
             mDialog!!.dismiss()
         }
+    }
+
+    fun showSignTypedDataDialog(view: android.view.View) {
+        var sessionId = "987654321"
+        var secret = "HiMyNameIsZiyang"
+        var url = "www.walletlink.org"
+        var userId = "20616604"
+        var metadata = "127.0.0.1"
+        var deeplink = "https://${url}/userId=${userId}/secret=${secret}/sessionId=${sessionId}/metadata=${metadata}"
+        var testlink = "wc:bc61ec1b-1149-45ef-926d-a5442c60fb60@1?bridge=wss%3A%2F%2Fapi.dydx.exchange%2Fwc%2F&key=650cd910a852c946ff75cd97479492f3f64010dc1258fcf550dce46eb3021ef7"
+        signTypedDataDialogBuiler = SignTypedDataDialog.Builder(this)
+        sendSignTypedDataDialog(){
+            signTypedDataDialog!!.dismiss()
+        }
+
+        val value = intent.getStringExtra("fromAddress")
+        if (value != null) {
+            Log.v("MainActivity", value)
+        };
+    }
+
+    private fun sendSignTypedDataDialog(onClickListener:View.OnClickListener) {
+        signTypedDataDialog = signTypedDataDialogBuiler!!
+            .setCloseButton(onClickListener)
+            .buildDialog()
+        signTypedDataDialog!!.show()
     }
 
     private fun showSingleButtonDialog(link:String, btnText: String, onClickListener:View.OnClickListener) {

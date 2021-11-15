@@ -25,7 +25,7 @@ class CustomDialog(context: Context) : Dialog(context) {
 
         init {
             val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            inflater.inflate(R.layout.custom_dialog, null).also { layout = it }
+            inflater.inflate(R.layout.start_connection_dialog, null).also { layout = it }
             dialog.addContentView(layout, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
         }
 
