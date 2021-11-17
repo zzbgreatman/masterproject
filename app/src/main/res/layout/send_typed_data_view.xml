@@ -282,7 +282,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
-            android:id="@+id/twoButtonLayout">
+            android:id="@+id/SignTypedDataButtonsLayout">
 
             <TextView
                 android:id="@+id/send_typedData_close"

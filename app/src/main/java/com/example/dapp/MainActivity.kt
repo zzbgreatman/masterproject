@@ -1,25 +1,35 @@
 package com.example.dapp
 
 import android.annotation.SuppressLint
-import android.app.Dialog
-import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.EditText
+import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.example.dapp.databinding.ActivityMainBinding
+import com.example.dapp.utils.HelperFunctions
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.common.BitMatrix
+import org.web3j.crypto.Credentials
+import org.web3j.protocol.Web3j
+import org.web3j.protocol.core.methods.response.TransactionReceipt
+import org.web3j.protocol.infura.InfuraHttpService
+import java.lang.Exception
+import java.math.BigInteger
+import java.util.concurrent.Future
 
 
 @SuppressLint("StaticFieldLeak")
 private var builderForCustom: CustomDialog.Builder? = null
 private var mDialog: CustomDialog? = null
+
+private var sendTransactionbuilder: SendTransactionDialog.Builder? = null
+private var sendTransactionDialog: SendTransactionDialog? = null
 
 private var signTypedDataDialogBuiler: SignTypedDataDialog.Builder? = null
 private var signTypedDataDialog: SignTypedDataDialog? = null
@@ -52,15 +62,25 @@ private fun matrix2Bitmap(matrix: BitMatrix): Bitmap {
 
 
 class MainActivity : AppCompatActivity() {
+    private val TAG = "MyActivity"
 
     private lateinit var binding: ActivityMainBinding
 
+    private val INFURA_API_ENDPOINT = "https://rinkeby.infura.io/v3/09e8e77f225a40978a15c1bdcd9daf17"
+    //FIXME: Add your own password here
+    private val password = "Fengzi-infura-690"
+    private val toAddress = "0x31B98D14007bDEe637298086988A0bBd31184523"
+
+
+
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
 
         setContentView(view)
+
     }
 
     fun startConnection(view: android.view.View) {
@@ -108,5 +128,31 @@ class MainActivity : AppCompatActivity() {
             .setSingleButton(btnText, onClickListener).setImage(barcodeFormatCode(link))
             .createSingleButtonDialog()
         mDialog!!.show()
+    }
+
+    @RequiresApi(Build.VERSION_CODES.N)
+    fun showSendTransactionDialog(view: android.view.View) {
+        sendTransactionbuilder = SendTransactionDialog.Builder(this)
+        // Set a click listener for button widget
+        sendTransactionDialog(){
+            sendTransactionDialog!!.dismiss()
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.N)
+    private fun sendTransactionDialog(onClickListener:View.OnClickListener) {
+
+        sendTransactionDialog = sendTransactionbuilder!!
+            .setCloseButton(onClickListener)
+            .createDialog()
+        sendTransactionDialog!!.show()
+    }
+
+
+    fun toastAsync(message: String?) {
+        println(message)
+        runOnUiThread {
+            Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+        }
     }
 }
