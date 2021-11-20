@@ -2,17 +2,13 @@ package com.example.dapp
 
 import android.annotation.SuppressLint
 import android.app.Dialog
-import android.app.PendingIntent.getActivity
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.LinearLayout
-import android.content.Intent
-import androidx.core.content.ContextCompat.startActivity
-import com.example.dapp.utils.HelperFunctions
+import com.example.dapp.utils.getTextInput
 
 
 class SignTypedDataDialog(context: Context) : Dialog(context) {
@@ -74,15 +70,24 @@ class SignTypedDataDialog(context: Context) : Dialog(context) {
         }
 
         private fun SignTypedData() {
-            val fromAddress: String = HelperFunctions.getTextInput("SignTyped fromAddress: ", R.id.fromAddressInput, layout)
-            val toAddress: String = HelperFunctions.getTextInput("SignTyped toAddress: ", R.id.toAddressInput, layout)
-            val weiValue: String = HelperFunctions.getTextInput("SignTyped wei: ", R.id.weiValueInput, layout)
-            val dataInput: String = HelperFunctions.getTextInput("SignTyped data: ", R.id.dataInput, layout)
-            val nonce: String = HelperFunctions.getTextInput("SignTyped nonce: ", R.id.nonceTitle, layout)
-            val gasPrice: String = HelperFunctions.getTextInput("SignTyped gas Price: ", R.id.gasPriceInput, layout)
-            val gasLimit: String = HelperFunctions.getTextInput("SignTyped gas Limit: ", R.id.gasLimitInput, layout)
-            val chainId: String = HelperFunctions.getTextInput("SignTyped chainId: ", R.id.chainIdInput, layout)
-            val shouldSubmit: String = HelperFunctions.getTextInput("SignTyped shouldSubmit: ", R.id.shouldSubmitInput, layout)
+            val fromAddress: String = getTextInput("SignTyped fromAddress: ",
+                layout.findViewById<EditText>(R.id.from_address_input))
+            val toAddress: String = getTextInput("SignTyped toAddress: ",
+                layout.findViewById<EditText>(R.id.to_address_title))
+            val weiValue: String = getTextInput("SignTyped wei: ",
+                layout.findViewById<EditText>(R.id.wei_input))
+            val dataInput: String = getTextInput("SignTyped data: ",
+                layout.findViewById<EditText>(R.id.data_input))
+            val nonce: String = getTextInput("SignTyped nonce: ",
+                layout.findViewById<EditText>(R.id.nonce_input))
+            val gasPrice: String = getTextInput("SignTyped gas Price: ",
+                layout.findViewById<EditText>(R.id.gas_price_input))
+            val gasLimit: String = getTextInput("SignTyped gas Limit: ",
+                layout.findViewById<EditText>(R.id.gas_limit_input))
+            val chainId: String = getTextInput("SignTyped chainId: ",
+                layout.findViewById<EditText>(R.id.chain_id_input))
+            val shouldSubmit: String = getTextInput("SignTyped shouldSubmit: ",
+                layout.findViewById<EditText>(R.id.should_submit_input))
 //            val intent = Intent(dialogContext, MainActivity::class.java)
 //            intent.putExtra("fromAddress", fromAddress);
 //            startActivity(dialogContext, intent, null);

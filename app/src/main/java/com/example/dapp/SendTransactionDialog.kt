@@ -9,10 +9,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.RequiresApi
-import com.example.dapp.utils.HelperFunctions
+import com.example.dapp.utils.SendTransactionListener
+import com.example.dapp.utils.getTextInput
+import com.example.dapp.utils.showAlert
+import com.example.dapp.utils.toastAsync
 import org.web3j.crypto.Credentials
 import org.web3j.protocol.Web3j
 import org.web3j.protocol.core.methods.response.TransactionReceipt
@@ -47,8 +51,11 @@ class SendTransactionDialog(context: Context) : Dialog(context) {
 
         private val layout: View
         private val dialog: SendTransactionDialog = SendTransactionDialog(context)
+        private val listner: SendTransactionListener
 
         init {
+            listner = context as SendTransactionListener
+
             val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             inflater.inflate(R.layout.send_transaction_view, null).also { layout = it }
             dialog.addContentView(layout, ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
@@ -105,10 +112,10 @@ class SendTransactionDialog(context: Context) : Dialog(context) {
 
         @RequiresApi(Build.VERSION_CODES.N)
         fun sendTransaction() {
-            val contractAddress = HelperFunctions.getTextInput("Smart contract address: ",
-                R.id.smart_contract_address_input, layout)
-            val signMessage = HelperFunctions.getTextInput("Sign Message: ",
-                R.id.sign_message_text, layout)
+            val contractAddress = getTextInput("Smart contract address: ",
+                layout.findViewById<EditText>(R.id.smart_contract_address_input))
+            val signMessage = getTextInput("Sign Message: ",
+                layout.findViewById<EditText>(R.id.sign_message_text))
             val thread = Thread {
                 try {
 
@@ -126,8 +133,11 @@ class SendTransactionDialog(context: Context) : Dialog(context) {
                             "${transactionReceipt?.get()?.gasUsed}"
                     layout.findViewById<TextView>(R.id.send_prompt).text = result
                     Log.d(TAG, result)
-//                    HelperFunctions.toastAsync(context, result)
+                    showAlert(context,"Send Transaction Status:", result)
+//                    listner.onSend(result)
+//                    toastAsync(context, result)
                 } catch (e: Exception) {
+                    Log.d(TAG, "sendTransaction Error: $e.message")
 //                    HelperFunctions.toastAsync(context,"sendTransaction Error: $e.message")
                 }
             }

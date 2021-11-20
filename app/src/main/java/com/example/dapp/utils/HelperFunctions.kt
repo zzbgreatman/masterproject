@@ -1,28 +1,59 @@
 package com.example.dapp.utils
 
+import android.app.AlertDialog
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
-import android.view.View
 import android.widget.EditText
 import android.widget.Toast
-import com.example.dapp.MainActivity
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
-class HelperFunctions {
+fun getTextInput(tag: String, editText: EditText): String {
+    var textInput = editText.text.toString();
+    Log.v(tag, textInput);
+    return textInput
+}
 
-    companion object {
-        fun getTextInput(tag: String, fromAddressInput: Int, layout: View): String {
-            var textInput = layout.findViewById<EditText>(fromAddressInput).text.toString();
-            Log.v(tag, textInput);
-            return textInput
-        }
-
-        fun toastAsync(context: Context, message: String?) {
-            println(message)
-            Toast.makeText(context, message, Toast.LENGTH_LONG).show()
-        }
+fun toastAsync(context: Context, message: String?) {
+    println(message)
+    Handler(Looper.getMainLooper()).post {
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
     }
 
-    val helperFunctions: HelperFunctions = HelperFunctions()
-
+//    GlobalScope.launch {
+//        //TODO("Background processing...")
+//        withContext(Dispatchers.Main) {
+//            // TODO("Update UI here!")
+//        }
+//        TODO("Continue background processing...")
+//    }
 }
+
+
+
+fun showAlert(context: Context, title: String, result: String) {
+    Handler(Looper.getMainLooper()).post {
+        AlertDialog.Builder(context)
+            .setTitle(title)
+            .setMessage(result)
+//        .setPositiveButton("Approve") { dialog, which ->
+//            approveRequest(request.hostRequestId, signData!!)
+//        }
+            .setNegativeButton("Close") { dialog, which ->
+                dialog.dismiss()
+            }
+            .show()
+    }
+}
+
+//class HelperFunctions {
+//
+//    companion object {
+//    }
+//    val helperFunctions: HelperFunctions = HelperFunctions()
+//
+//}

@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dapp.databinding.ActivityMainBinding
-import com.example.dapp.utils.HelperFunctions
+import com.example.dapp.utils.SendTransactionListener
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.common.BitMatrix
@@ -40,7 +40,7 @@ fun barcodeFormatCode(content: String): Bitmap {
     return matrix2Bitmap(matrix)
 }
 
-private fun matrix2Bitmap(matrix: BitMatrix): Bitmap {
+private fun matrix2Bitmap(matrix: BitMatrix) : Bitmap {
     val w = matrix.width
     val h = matrix.height
     val rawData = IntArray(w * h)
@@ -61,7 +61,7 @@ private fun matrix2Bitmap(matrix: BitMatrix): Bitmap {
 }
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), SendTransactionListener {
     private val TAG = "MyActivity"
 
     private lateinit var binding: ActivityMainBinding
@@ -148,6 +148,9 @@ class MainActivity : AppCompatActivity() {
         sendTransactionDialog!!.show()
     }
 
+    override fun onSend(result: String) {
+        toastAsync(result)
+    }
 
     fun toastAsync(message: String?) {
         println(message)
@@ -155,4 +158,5 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, message, Toast.LENGTH_LONG).show()
         }
     }
+
 }

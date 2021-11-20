@@ -6,73 +6,58 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="@drawable/horizontal_layout"
-    android:padding="10dp"
     app:layout_constraintCircleRadius="20dp">
 
         <TextView
-            android:id="@+id/sendTradingTitle"
-            android:layout_width="wrap_content"
+            android:id="@+id/send_transaction_title"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/textColor"
-            android:layout_marginTop="5dp"
+            android:background="@drawable/horizontal_layout"
+            android:layout_marginBottom="5dp"
             android:textSize="35dp"
+            android:textAlignment="center"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Send Trading" />
+            android:text="@string/send_transaction_label" />
 
-        <LinearLayout
-            android:layout_width="360dp"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:orientation="horizontal">
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="320dp"
+        android:layout_height="70dp"
+        android:hint="@string/contract_address_label"
+        android:layout_marginVertical="5dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-            <TextView
-                android:id="@+id/smart_contract_address_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/textColor"
-                android:textSize="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Contract Address:" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/smart_contract_address_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20dp"
+            android:inputType="text"
+            android:text="0x8394cDf176A4A52DA5889f7a99c4f7AD2BF59088"/>
 
-            <EditText
-                android:id="@+id/smart_contract_address_input"
-                android:layout_width="190dp"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:background="@color/white"
-                android:layout_marginTop="5dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:ems="5"
-                android:text="0x8394cDf176A4A52DA5889f7a99c4f7AD2BF59088"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="320dp"
+        android:layout_height="120dp"
+        android:layout_marginVertical="5dp"
+        android:hint="@string/sign_message_label"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        </LinearLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sign_message_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="start|top"
+            android:textSize="20dp"
+            android:ems="10"
+            android:inputType="text" />
 
-    <TextView
-        android:id="@+id/sign_message_title"
-        android:layout_width="360dp"
-        android:layout_height="wrap_content"
-        android:textColor="@color/textColor"
-        android:textSize="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="2dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Sign Message:" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/sign_message_text"
-        android:layout_width="360dp"
-        android:layout_height="100dp"
-        android:ems="10"
-        android:background="@color/white"
-        android:inputType="text"
-        android:text="" />
 
     <LinearLayout
-            android:layout_width="360dp"
+            android:layout_width="380dp"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
@@ -85,8 +70,8 @@
                 android:layout_alignParentStart="true"
                 android:gravity="center"
                 android:textColor="@color/textColor"
-                android:background="@drawable/custom_button_1"
-                android:layout_margin="5dp"
+                android:background="@drawable/custom_button_2"
+                android:layout_margin="15dp"
                 android:paddingVertical="5dp"
                 android:textSize="25dp"
                 android:text="Close"
@@ -98,8 +83,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:textColor="@color/textColor"
-                android:background="@drawable/custom_button_1"
-                android:layout_margin="5dp"
+                android:background="@drawable/custom_button_2"
+                android:layout_margin="15dp"
                 android:paddingVertical="5dp"
                 android:textSize="25dp"
                 android:gravity="center"
